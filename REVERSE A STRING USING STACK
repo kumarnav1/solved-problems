@@ -34,7 +34,7 @@ void main(){
     int pop() //not giving any agrgument because we want only to print,decrese the top.
     {
         if(top==-1){ //underflow condition
-        printf("NO element present in stack"); 
+        printf("stack is empty"); 
         return -1;//unsuccesssful execution of code
         }
         else
