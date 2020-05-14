@@ -1,16 +1,13 @@
 #include<stdio.h>
-//function prototype
-int countstringlength(char);
-void push(char);
-int pop();
 void main(){
-    char strings[]="IHCNAR YTISREVINU IAR DNAHKRAHJ,900/71/TB RAMUK TEENVAN ---POHSKROW SIHT ROF RIS KEHSIHBA UOY KNAHT---";
+    char strings[]="IHCNAR YTISREVINU IAR DNAHKRAHJ,900/71/TB RAMUK TEENVAN ---POHSKROW SIHT ROF RIS HSIHSA DNA MAM AHDARUNA,RIS ARDNERMA,RIS KEHSIHBA UOY KNAHT";
     int max=700;
     int newstack[max];
     int top=-1;//initially top of the stack will point to nothing
     int counter;
-    //to find the length of the string.
-    int countstringlength(char strings[])
+    
+    //function to find the length of the string.
+    int countstringlength(char strings[]) // WE CAN USE strlen function to count the stringlength
     {
     int stringlength=0;
     while(strings[stringlength]!='\0'){
@@ -19,13 +16,12 @@ void main(){
     return stringlength;
     }
     
-    int string_length=countstringlength(strings);
+    int string_length=countstringlength(strings); //storing the string  length in a variable
     //printf("\n %d",string_length);
-    
     
     //putting all the strings in the stack
     void push(char strings){
-        if (top==max-1)
+        if (top==max-1)//overflow
             printf("stack is full");
         else{
             top=top+1;
@@ -35,22 +31,26 @@ void main(){
     }
     
     //taking out elements form the stack 
-    
     int pop() //not giving any agrgument because we want only to print,decrese the top.
     {
-        if(top==-1){
-        printf("NO element in stack");
+        if(top==-1){ //underflow condition
+        printf("NO element in stack"); 
         return -1;//unsuccesssful execution of code
         }
-    printf("%c",newstack[top]);
-    --top;
+        else
+        printf("%c",newstack[top]);
+        --top;
     }
     
-    
+    //running loop to put every element one by one in stack
     for(counter=0;counter<=string_length;counter+=1)
         push(strings[counter]);
         
+    //BELOW loop for printing by one and decreasing the top of the stack by one.
     for(counter=0;counter<=string_length;counter+=1)
         pop(strings[counter]);
-    
+    /*above line prints the reverse of the stack because stack
+    works on last in first out or first in last out--THERE FOR WHATEVER STRING WAS
+    PUSHED FIRST WILL POPED AT LAST AND the stirng which is pushed last will poped first 
+    hence string is reversed*/
 }
