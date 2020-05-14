@@ -1,0 +1,56 @@
+#include<stdio.h>
+//function prototype
+int countstringlength(char);
+void push(char);
+int pop();
+void main(){
+    char strings[]="IHCNAR YTISREVINU IAR DNAHKRAHJ,900/71/TB RAMUK TEENVAN ---POHSKROW SIHT ROF RIS KEHSIHBA UOY KNAHT---";
+    int max=700;
+    int newstack[max];
+    int top=-1;//initially top of the stack will point to nothing
+    int counter;
+    //to find the length of the string.
+    int countstringlength(char strings[])
+    {
+    int stringlength=0;
+    while(strings[stringlength]!='\0'){
+        stringlength++;
+    }
+    return stringlength;
+    }
+    
+    int string_length=countstringlength(strings);
+    //printf("\n %d",string_length);
+    
+    
+    //putting all the strings in the stack
+    void push(char strings){
+        if (top==max-1)
+            printf("stack is full");
+        else{
+            top=top+1;
+            newstack[top]=strings;
+        }
+        return;
+    }
+    
+    //taking out elements form the stack 
+    
+    int pop() //not giving any agrgument because we want only to print,decrese the top.
+    {
+        if(top==-1){
+        printf("NO element in stack");
+        return -1;//unsuccesssful execution of code
+        }
+    printf("%c",newstack[top]);
+    --top;
+    }
+    
+    
+    for(counter=0;counter<=string_length;counter+=1)
+        push(strings[counter]);
+        
+    for(counter=0;counter<=string_length;counter+=1)
+        pop(strings[counter]);
+    
+}
